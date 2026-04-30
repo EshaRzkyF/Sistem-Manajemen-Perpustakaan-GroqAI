@@ -1,0 +1,209 @@
+{
+  "info": {
+    "_postman_id": "f6d2c1d7-8d24-4f9e-9f91-7f3b2c1a4b10",
+    "name": "Library Management REST API",
+    "description": "Collection untuk API Sistem Manajemen Perpustakaan Laravel 12.\n\nGunakan environment 'Library Management Local' dengan base_url yang sesuai.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/books",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books"]
+            }
+          },
+          "response": [
+            {
+              "name": "Sample response",
+              "originalRequest": {
+                "method": "GET",
+                "url": {
+                  "raw": "{{base_url}}/api/books",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "books"]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "body": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"title\": \"Sang Pemimpi\",\n      \"author\": \"Andrea Hirata\",\n      \"year\": 2006,\n      \"stock\": 40,\n      \"created_at\": \"2026-04-30T00:00:00.000000Z\",\n      \"updated_at\": \"2026-04-30T00:00:00.000000Z\"\n    },\n    {\n      \"id\": 2,\n      \"title\": \"Ayat-Ayat Cinta\",\n      \"author\": \"Habiburrahman El Shirazy\",\n      \"year\": 2004,\n      \"stock\": 3,\n      \"created_at\": \"2026-04-30T00:00:00.000000Z\",\n      \"updated_at\": \"2026-04-30T00:00:00.000000Z\"\n    },\n    {\n      \"id\": 3,\n      \"title\": \"Perahu Kertas\",\n      \"author\": \"Dee Lestari\",\n      \"year\": 2009,\n      \"stock\": 8,\n      \"created_at\": \"2026-04-30T00:00:00.000000Z\",\n      \"updated_at\": \"2026-04-30T00:00:00.000000Z\"\n    },\n    {\n      \"id\": 4,\n      \"title\": \"Dilan: Dia adalah Dilanku Tahun 1990\",\n      \"author\": \"Pidi Baiq\",\n      \"year\": 2014,\n      \"stock\": 29,\n      \"created_at\": \"2026-04-30T00:00:00.000000Z\",\n      \"updated_at\": \"2026-04-30T00:00:00.000000Z\"\n    },\n    {\n      \"id\": 5,\n      \"title\": \"Negeri 5 Menara\",\n      \"author\": \"Ahmad Fuadi\",\n      \"year\": 2009,\n      \"stock\": 2,\n      \"created_at\": \"2026-04-30T00:00:00.000000Z\",\n      \"updated_at\": \"2026-04-30T00:00:00.000000Z\"\n    },\n    {\n      \"id\": 6,\n      \"title\": \"Bumi manusia\",\n      \"author\": \"Pramoedya Ananta Toer\",\n      \"year\": 1980,\n      \"stock\": 12,\n      \"created_at\": \"2026-04-30T00:00:00.000000Z\",\n      \"updated_at\": \"2026-04-30T00:00:00.000000Z\"\n    },\n    {\n      \"id\": 7,\n      \"title\": \"Laskar Pelangi\",\n      \"author\": \"Andrea Hirata\",\n      \"year\": 2005,\n      \"stock\": 4,\n      \"created_at\": \"2026-04-30T00:00:00.000000Z\",\n      \"updated_at\": \"2026-04-30T00:00:00.000000Z\"\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Sang Pemimpi\",\n  \"author\": \"Andrea Hirata\",\n  \"year\": 2006,\n  \"stock\": 40\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/books",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books"]
+            }
+          },
+          "response": [
+            {
+              "name": "Created response",
+              "status": "Created",
+              "code": 201,
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"id\": 1,\n    \"title\": \"Sang Pemimpi\",\n    \"author\": \"Andrea Hirata\",\n    \"year\": 2006,\n    \"stock\": 40,\n    \"created_at\": \"2026-04-30T00:00:00.000000Z\",\n    \"updated_at\": \"2026-04-30T00:00:00.000000Z\"\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Book Detail",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/books/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Sang Pemimpi\",\n  \"author\": \"Andrea Hirata\",\n  \"year\": 2006,\n  \"stock\": 38\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/books/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/books/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "books", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Loans",
+      "item": [
+        {
+          "name": "Get All Loans",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans",
+              "host": ["{{base_url}}"],
+              "path": ["api", "loans"]
+            }
+          },
+          "response": [
+            {
+              "name": "Sample response",
+              "status": "OK",
+              "code": 200,
+              "body": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"book_id\": 1,\n      \"borrower_name\": \"Fakhri Irsadi\",\n      \"borrow_date\": \"2026-04-02\",\n      \"return_date\": \"2026-04-30\",\n      \"book\": {\n        \"id\": 1,\n        \"title\": \"Sang Pemimpi\"\n      }\n    },\n    {\n      \"id\": 2,\n      \"book_id\": 4,\n      \"borrower_name\": \"Rachman Hidayat\",\n      \"borrow_date\": \"2026-04-09\",\n      \"return_date\": \"2026-05-13\",\n      \"book\": {\n        \"id\": 4,\n        \"title\": \"Dilan: Dia adalah Dilanku Tahun 1990\"\n      }\n    },\n    {\n      \"id\": 3,\n      \"book_id\": 5,\n      \"borrower_name\": \"Andi Dwi Reza\",\n      \"borrow_date\": \"2026-04-29\",\n      \"return_date\": \"2026-05-21\",\n      \"book\": {\n        \"id\": 5,\n        \"title\": \"Negeri 5 Menara\"\n      }\n    },\n    {\n      \"id\": 4,\n      \"book_id\": 7,\n      \"borrower_name\": \"Anggi Dwi Saputra\",\n      \"borrow_date\": \"2026-04-28\",\n      \"return_date\": \"2026-06-06\",\n      \"book\": {\n        \"id\": 7,\n        \"title\": \"Laskar Pelangi\"\n      }\n    },\n    {\n      \"id\": 5,\n      \"book_id\": 2,\n      \"borrower_name\": \"Esha Rizky Filliansyah\",\n      \"borrow_date\": \"2026-04-30\",\n      \"return_date\": \"2026-05-01\",\n      \"book\": {\n        \"id\": 2,\n        \"title\": \"Ayat-Ayat Cinta\"\n      }\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Loan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"book_id\": 2,\n  \"borrower_name\": \"Nama Peminjam Baru\",\n  \"borrow_date\": \"2026-04-30\",\n  \"return_date\": \"2026-05-07\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/loans",
+              "host": ["{{base_url}}"],
+              "path": ["api", "loans"]
+            }
+          }
+        },
+        {
+          "name": "Delete Loan",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "loans", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AI Recommendation",
+      "item": [
+        {
+          "name": "Analyze Books",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/ai/recommendation",
+              "host": ["{{base_url}}"],
+              "path": ["api", "ai", "recommendation"]
+            }
+          },
+          "response": [
+            {
+              "name": "Sample response",
+              "status": "OK",
+              "code": 200,
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"analysis\": {\n      \"total_books\": 7,\n      \"total_loans\": 5,\n      \"low_stock_books\": [\n        {\n          \"title\": \"Ayat-Ayat Cinta\",\n          \"author\": \"Habiburrahman El Shirazy\",\n          \"stock\": 3\n        },\n        {\n          \"title\": \"Negeri 5 Menara\",\n          \"author\": \"Ahmad Fuadi\",\n          \"stock\": 2\n        },\n        {\n          \"title\": \"Laskar Pelangi\",\n          \"author\": \"Andrea Hirata\",\n          \"stock\": 4\n        }\n      ],\n      \"most_borrowed_books\": [\n        {\n          \"title\": \"Sang Pemimpi\",\n          \"author\": \"Andrea Hirata\",\n          \"loans_count\": 1\n        },\n        {\n          \"title\": \"Ayat-Ayat Cinta\",\n          \"author\": \"Habiburrahman El Shirazy\",\n          \"loans_count\": 1\n        },\n        {\n          \"title\": \"Dilan: Dia adalah Dilanku Tahun 1990\",\n          \"author\": \"Pidi Baiq\",\n          \"loans_count\": 1\n        },\n        {\n          \"title\": \"Negeri 5 Menara\",\n          \"author\": \"Ahmad Fuadi\",\n          \"loans_count\": 1\n        },\n        {\n          \"title\": \"Laskar Pelangi\",\n          \"author\": \"Andrea Hirata\",\n          \"loans_count\": 1\n        }\n      ],\n      \"recent_loans\": [\n        {\n          \"book\": \"Ayat-Ayat Cinta\",\n          \"borrower_name\": \"Esha Rizky Filliansyah\",\n          \"borrow_date\": \"2026-04-30\",\n          \"return_date\": \"2026-05-01\"\n        },\n        {\n          \"book\": \"Laskar Pelangi\",\n          \"borrower_name\": \"Anggi Dwi Saputra\",\n          \"borrow_date\": \"2026-04-28\",\n          \"return_date\": \"2026-06-06\"\n        }\n      ]\n    },\n    \"recommendation\": \"Gunakan hasil Groq AI Anda di sini sebagai ringkasan rekomendasi.\"\n  }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
