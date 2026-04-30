@@ -1,106 +1,78 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="hero-card text-white rounded-4 shadow-lg p-4 p-lg-5 mb-4">
-    <div class="row align-items-center g-4">
-        <div class="col-lg-8">
-            <span class="badge text-bg-light text-primary mb-3">Dashboard</span>
-            <h1 class="display-6 fw-bold mb-3">Sistem Manajemen Perpustakaan</h1>
-            <p class="lead mb-0 text-white-75">Pantau koleksi, peminjaman, dan rekomendasi AI dalam satu tampilan yang rapi dan responsif.</p>
+<div class="mb-6 overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-800 p-6 text-white shadow-lg sm:p-8">
+    <div class="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div>
+            <p class="mb-3 inline-flex rounded-full border border-white/20 px-3 py-1 text-xs font-medium">Library Dashboard</p>
+            <h2 class="text-2xl font-semibold sm:text-3xl">Sistem Manajemen Perpustakaan</h2>
+            <p class="mt-3 max-w-2xl text-sm text-slate-200 sm:text-base">Pantau koleksi buku, pergerakan peminjaman, dan produktivitas tim dari satu tampilan yang bersih dan responsif.</p>
         </div>
-        <div class="col-lg-4 text-lg-end">
-            <div class="bg-white bg-opacity-10 rounded-4 p-3 d-inline-block">
-                <div class="small text-white-50">Total Buku</div>
-                <div class="fs-1 fw-bold">{{ $summary['total_books'] }}</div>
-            </div>
+        <div class="rounded-2xl border border-white/15 bg-white/10 p-4 text-center backdrop-blur">
+            <p class="text-xs uppercase tracking-wider text-slate-200">Total Buku</p>
+            <p class="mt-1 text-4xl font-bold">{{ $summary['total_books'] }}</p>
         </div>
     </div>
 </div>
 
-<div class="row g-4 mb-4">
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100">
-            <div class="card-body p-4">
-                <div class="d-flex align-items-center justify-content-between">
-                    <div>
-                        <p class="text-secondary mb-1">Total Buku</p>
-                        <h3 class="mb-0 fw-bold">{{ $summary['total_books'] }}</h3>
-                    </div>
-                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3">
-                        <i class="bi bi-book fs-3"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100">
-            <div class="card-body p-4">
-                <div class="d-flex align-items-center justify-content-between">
-                    <div>
-                        <p class="text-secondary mb-1">Total Peminjaman</p>
-                        <h3 class="mb-0 fw-bold">{{ $summary['total_loans'] }}</h3>
-                    </div>
-                    <div class="bg-success bg-opacity-10 text-success rounded-circle p-3">
-                        <i class="bi bi-arrow-left-right fs-3"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100">
-            <div class="card-body p-4">
-                <div class="d-flex align-items-center justify-content-between">
-                    <div>
-                        <p class="text-secondary mb-1">Buku Tersedia</p>
-                        <h3 class="mb-0 fw-bold">{{ $summary['available_books'] }}</h3>
-                    </div>
-                    <div class="bg-warning bg-opacity-10 text-warning rounded-circle p-3">
-                        <i class="bi bi-stack fs-3"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="mb-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <p class="text-sm text-slate-500">Total Buku</p>
+        <p class="mt-2 text-3xl font-bold text-slate-900">{{ $summary['total_books'] }}</p>
+        <p class="mt-1 text-xs text-slate-500">Semua koleksi terdaftar</p>
+    </article>
+
+    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <p class="text-sm text-slate-500">Total Peminjaman</p>
+        <p class="mt-2 text-3xl font-bold text-slate-900">{{ $summary['total_loans'] }}</p>
+        <p class="mt-1 text-xs text-slate-500">Riwayat transaksi buku</p>
+    </article>
+
+    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:col-span-2 xl:col-span-1">
+        <p class="text-sm text-slate-500">Buku Tersedia</p>
+        <p class="mt-2 text-3xl font-bold text-slate-900">{{ $summary['available_books'] }}</p>
+        <p class="mt-1 text-xs text-slate-500">Jumlah stok siap pinjam</p>
+    </article>
 </div>
 
-<div class="card border-0 shadow-sm">
-    <div class="card-body p-4">
-        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-            <div>
-                <h5 class="mb-1 fw-bold">Ringkasan Koleksi</h5>
-                <p class="text-secondary mb-0">Data terbaru dari buku dan peminjaman.</p>
-            </div>
-            <a href="{{ route('books.index') }}" class="btn btn-primary"><i class="bi bi-arrow-right-circle me-2"></i>Lihat Buku</a>
+<section class="rounded-3xl border border-slate-200 bg-white shadow-sm">
+    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-4 sm:px-6">
+        <div>
+            <h3 class="text-lg font-semibold text-slate-900">Ringkasan Koleksi</h3>
+            <p class="text-sm text-slate-500">Data buku terbaru pada sistem.</p>
         </div>
+        <a href="{{ route('books.index') }}" class="rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700">Kelola Buku</a>
+    </div>
 
-        <div class="table-responsive">
-            <table class="table align-middle mb-0">
-                <thead class="table-light">
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-slate-200 text-sm">
+            <thead class="bg-slate-50">
+                <tr>
+                    <th class="px-5 py-3 text-left font-semibold text-slate-600 sm:px-6">Judul</th>
+                    <th class="px-5 py-3 text-left font-semibold text-slate-600 sm:px-6">Penulis</th>
+                    <th class="px-5 py-3 text-left font-semibold text-slate-600 sm:px-6">Tahun</th>
+                    <th class="px-5 py-3 text-left font-semibold text-slate-600 sm:px-6">Stok</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 bg-white">
+                @forelse($books as $book)
                     <tr>
-                        <th>Judul</th>
-                        <th>Penulis</th>
-                        <th>Tahun</th>
-                        <th>Stok</th>
+                        <td class="px-5 py-3 font-medium text-slate-900 sm:px-6">{{ $book->title }}</td>
+                        <td class="px-5 py-3 text-slate-700 sm:px-6">{{ $book->author }}</td>
+                        <td class="px-5 py-3 text-slate-700 sm:px-6">{{ $book->year }}</td>
+                        <td class="px-5 py-3 sm:px-6">
+                            <span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold {{ $book->stock > 0 ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700' }}">
+                                {{ $book->stock }}
+                            </span>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    @forelse($books as $book)
-                        <tr>
-                            <td class="fw-medium">{{ $book->title }}</td>
-                            <td>{{ $book->author }}</td>
-                            <td>{{ $book->year }}</td>
-                            <td><span class="badge {{ $book->stock > 0 ? 'text-bg-success' : 'text-bg-danger' }}">{{ $book->stock }}</span></td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4" class="text-center py-4 text-secondary">Belum ada data buku.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
+                @empty
+                    <tr>
+                        <td colspan="4" class="px-5 py-10 text-center text-slate-500 sm:px-6">Belum ada data buku.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
     </div>
-</div>
+</section>
 @endsection
